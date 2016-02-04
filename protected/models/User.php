@@ -32,7 +32,7 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, password, photo, about', 'required'),
+			array('username, password', 'required'),
 			array('username, password, photo', 'length', 'max'=>128),
 			array('about', 'length', 'max'=>250),
 			// The following rule is used by search().
@@ -106,5 +106,15 @@ class User extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+
+	public function validatePassword($password)
+	{
+		return CPasswordHelper::verifyPassword($password,$this->password);
+	}
+
+	public function hashPassword($password)
+	{
+		return CPasswordHelper::hashPassword($password);
 	}
 }
