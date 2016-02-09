@@ -16,6 +16,7 @@
  */
 class User extends CActiveRecord
 {
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -33,11 +34,18 @@ class User extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('username, password', 'required'),
-			array('username, password, photo', 'length', 'max'=>128),
-			array('about', 'length', 'max'=>250),
+			array('username, password', 'length', 'max'=>128),
+			array('about, photo', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, username, password, photo, about', 'safe', 'on'=>'search'),
+			array('photo', 'file',
+				'types'=>'jpg, gif, png',
+				'maxSize'=>1024 * 1024 * 5, // 5 MB
+				'allowEmpty'=>'true',
+				'tooLarge'=>'Файл весит больше 5 MB. Пожалуйста, загрузите файл меньшего размера.',
+				'on'=>'update'
+			),
 		);
 	}
 
@@ -117,4 +125,15 @@ class User extends CActiveRecord
 	{
 		return CPasswordHelper::hashPassword($password);
 	}
+
+	public function getPhoto()
+	{
+//		if (file_exists(Yii::getPathOfAlias('webroot') . '/images/' . $this->photo)) {
+//			return CHtml::image(Yii::app()->baseUrl . '/images/' . $this->photo);
+//		}
+		return $this->photo;
+
+	}
+
+
 }

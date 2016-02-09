@@ -32,7 +32,6 @@ class Post extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('title, content', 'required'),
-			array('create_time, author_id', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>128),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -104,5 +103,10 @@ class Post extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+
+	public function getUsername()
+	{
+		return User::model()->findByPk($this->author_id)->username;
 	}
 }

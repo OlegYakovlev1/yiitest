@@ -71,8 +71,21 @@ class UserController extends Controller
 		{
 			$model->attributes=$_POST['User'];
 			$model->password = $model->hashPassword($model->password);
+			$model->photo=CUploadedFile::getInstance($model,'photo');
+			if ($model->photo){
+				$sourcePath = pathinfo($model->photo->getName());
+				$fileName = date('m-d').'-'.$model->username.'.'.$sourcePath['extension'];
+				$path = Yii::getPathOfAlias('webroot') . "/images/";
+				$model->photo->saveAs($path . $fileName);
+				$model->photo = $fileName;
+			}
+			$model->photo = "asdfasfas";
 			if($model->save())
+			{
+
 				$this->redirect(array('view','id'=>$model->id));
+			}
+
 		}
 
 		$this->render('create',array(
@@ -94,7 +107,26 @@ class UserController extends Controller
 
 		if(isset($_POST['User']))
 		{
+//									var_dump($_POST['User']);
+//						var_dump($model->photo);
+//			exit();
+			$_POST['User']['photo']=$model->photo;
+
 			$model->attributes=$_POST['User'];
+			$photo=CUploadedFile::getInstance($model,'photo');
+
+			if ($photo)
+			{
+				$sourcePath = pathinfo($photo->getName());
+				$fileName = date('m-d').'-'.$model->username.'.'.$sourcePath['extension'];
+				$path = Yii::getPathOfAlias('webroot') . "/images/";
+				$photo->saveAs($path . $fileName);
+				$model->photo = $fileName;
+			}
+						var_dump($model);
+//						var_dump($model->photo);
+			exit();
+//			$model->photo = "qwertyuiopasdf2";
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -111,7 +143,14 @@ class UserController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		$this->loadModel($id)->delete();
+
+		$user = $this->loadModel($id);
+		if(file_exists(Yii::getPathOfAlias('webroot') . "/images/" . $user->photo))
+		{
+			//удаляем файл
+			unlink(Yii::getPathOfAlias('webroot') . "/images/" . $user->photo);
+		}
+		$user->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
@@ -170,5 +209,23 @@ class UserController extends Controller
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+	}
+
+	public function material_image($id, $create_year, $alias, $title, $image, $width='150', $class='material_img')
+	{
+		if(isset($image) && file_exists($_SERVER['DOCUMENT_ROOT'].
+				Yii::app()->urlManager->baseUrl.
+				'/images/'.$create_year.'/'.$image))
+			return CHtml::image(Yii::app()->getBaseUrl(true).'/images/'.$create_year.'/'.$image, $title,
+				array(
+					'width'=>$width,
+					'class'=>$class,
+				));
+		else
+			return CHtml::image(Yii::app()->getBaseUrl(true).'/images/pics/noimage.gif','Нет картинки',
+				array(
+					'width'=>$width,
+					'class'=>$class
+				));
 	}
 }

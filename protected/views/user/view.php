@@ -18,6 +18,8 @@ $this->menu=array(
 
 <h1>View User #<?php echo $model->id; ?></h1>
 
+<?php echo CHtml::image(Yii::app()->baseUrl . '/images/' . $model->getPhoto()); ?>
+
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
