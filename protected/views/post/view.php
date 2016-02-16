@@ -16,15 +16,21 @@ $this->menu=array(
 );
 ?>
 
-<h1>View Post #<?php echo $model->id; ?></h1>
+<h1>Title: <?php echo $model->title?></h1>
+
+<?php
+	$images=$model->getImages();
+	foreach($images as $image)
+		echo CHtml::image(Yii::app()->baseUrl . '/images/' . $image)."\t";
+?>
+
+<p><?php echo $model->content;?></p>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
-		'title',
-		'content',
-		'create_time',
-		'author_id',
 	),
 )); ?>
+
+Create time: <?php echo $model->create_time; ?>; Author: <?php echo $model->getUsername(); ?>

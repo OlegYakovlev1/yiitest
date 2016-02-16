@@ -74,12 +74,11 @@ class UserController extends Controller
 			$model->photo=CUploadedFile::getInstance($model,'photo');
 			if ($model->photo){
 				$sourcePath = pathinfo($model->photo->getName());
-				$fileName = date('m-d').'-'.$model->username.'.'.$sourcePath['extension'];
+				$fileName = 'avatar-'.$model->username.'.'.$sourcePath['extension'];
 				$path = Yii::getPathOfAlias('webroot') . "/images/";
 				$model->photo->saveAs($path . $fileName);
 				$model->photo = $fileName;
 			}
-			$model->photo = "asdfasfas";
 			if($model->save())
 			{
 
@@ -108,25 +107,28 @@ class UserController extends Controller
 		if(isset($_POST['User']))
 		{
 //									var_dump($_POST['User']);
+//									var_dump($_FILES);
 //						var_dump($model->photo);
 //			exit();
 			$_POST['User']['photo']=$model->photo;
 
 			$model->attributes=$_POST['User'];
+			$model->password = $model->hashPassword($model->password);
 			$photo=CUploadedFile::getInstance($model,'photo');
 
 			if ($photo)
 			{
 				$sourcePath = pathinfo($photo->getName());
-				$fileName = date('m-d').'-'.$model->username.'.'.$sourcePath['extension'];
+				$fileName = 'avatar-'.$model->username.'.'.$sourcePath['extension'];
 				$path = Yii::getPathOfAlias('webroot') . "/images/";
 				$photo->saveAs($path . $fileName);
 				$model->photo = $fileName;
 			}
-						var_dump($model);
+//						var_dump($model);
 //						var_dump($model->photo);
-			exit();
-//			$model->photo = "qwertyuiopasdf2";
+//			exit();
+//			$model->photo = "qwertyuiopasdf223";
+//			$model->username = "qwertyuiopasdf223";
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}

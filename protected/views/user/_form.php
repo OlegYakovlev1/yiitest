@@ -34,7 +34,6 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'photo'); ?>
-<!--		--><?php //echo $model->getPhoto(); ?>
 		<?php echo CHtml::image(Yii::app()->baseUrl . '/images/' . $model->photo); ?>
 <!--		--><?php //echo CHtml::activeFileField($model, 'photo'); ?>
 		<?php echo $form->fileField($model, 'photo', array('data-header'=>'Выберите файл')); ?>

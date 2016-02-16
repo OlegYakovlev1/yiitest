@@ -13,6 +13,13 @@
 	<?php echo CHtml::encode($data->title); ?>
 	<br />
 
+	<?php
+	$images=$data->getImages();
+	foreach($images as $image)
+		echo CHtml::image(Yii::app()->baseUrl . '/images/' . $image)."\t";
+	?>
+	<br />
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('content')); ?>:</b>
 	<?php echo CHtml::encode($data->content); ?>
 	<br />

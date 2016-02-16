@@ -14,6 +14,8 @@ $this->menu=array(
 
 <h1>Posts</h1>
 
+<?php //var_dump($dataProvider); exit();?>
+
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',

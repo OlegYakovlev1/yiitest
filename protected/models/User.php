@@ -40,10 +40,10 @@ class User extends CActiveRecord
 			// @todo Please remove those attributes that should not be searched.
 			array('id, username, password, photo, about', 'safe', 'on'=>'search'),
 			array('photo', 'file',
-				'types'=>'jpg, gif, png',
-				'maxSize'=>1024 * 1024 * 5, // 5 MB
+//				'types'=>'jpg, gif, png',
+//				'maxSize'=>1024 * 1024 * 5, // 5 MB
 				'allowEmpty'=>'true',
-				'tooLarge'=>'Файл весит больше 5 MB. Пожалуйста, загрузите файл меньшего размера.',
+//				'tooLarge'=>'Файл весит больше 5 MB. Пожалуйста, загрузите файл меньшего размера.',
 				'on'=>'update'
 			),
 		);

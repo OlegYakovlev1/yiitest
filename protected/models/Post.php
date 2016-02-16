@@ -7,6 +7,7 @@
  * @property integer $id
  * @property string $title
  * @property string $content
+ * @property string $images
  * @property integer $create_time
  * @property integer $author_id
  *
@@ -36,6 +37,7 @@ class Post extends CActiveRecord
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, title, content, create_time, author_id', 'safe', 'on'=>'search'),
+			array('images', 'length', 'max'=>255),
 		);
 	}
 
@@ -62,6 +64,7 @@ class Post extends CActiveRecord
 			'content' => 'Content',
 			'create_time' => 'Create Time',
 			'author_id' => 'Author',
+			'images' => 'Images',
 		);
 	}
 
@@ -108,5 +111,10 @@ class Post extends CActiveRecord
 	public function getUsername()
 	{
 		return User::model()->findByPk($this->author_id)->username;
+	}
+
+	public function getImages()
+	{
+		return explode(",", $this->images);
 	}
 }

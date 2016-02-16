@@ -550,3 +550,184 @@ in D:\PHP\xampp\htdocs\yiitest\index.php (13)
 2016/02/09 17:34:24 [warning] [application] Failed to set unsafe attribute "image" of "User".
 in D:\PHP\xampp\htdocs\yiitest\protected\controllers\UserController.php (112)
 in D:\PHP\xampp\htdocs\yiitest\index.php (13)
+2016/02/10 10:43:01 [error] [php] Undefined index: id (D:\PHP\xampp\htdocs\yiitest\protected\controllers\UserController.php:116)
+Stack trace:
+#0 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CFilterChain.php(133): UserController->runAction()
+#3 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CInlineFilter.php(58): UserController->filterAccessControl()
+#6 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(291): CFilterChain->run()
+#8 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(265): UserController->runActionWithFilters()
+#9 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CWebApplication.php(282): UserController->run()
+#10 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 D:\PHP\xampp\htdocs\yii-1.1.17\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#12 D:\PHP\xampp\htdocs\yiitest\index.php(13): CWebApplication->run()
+REQUEST_URI=/yiitest/index.php?r=user/update&id=14
+in D:\PHP\xampp\htdocs\yiitest\protected\controllers\UserController.php (116)
+in D:\PHP\xampp\htdocs\yiitest\index.php (13)
+2016/02/10 13:20:23 [error] [php] unlink(D:/PHP/xampp/htdocs/yiitest/images/): Permission denied (D:\PHP\xampp\htdocs\yiitest\protected\controllers\UserController.php:153)
+Stack trace:
+#0 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs()
+#1 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CFilterChain.php(133): UserController->runAction()
+#4 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(1116): CFilterChain->run()
+#5 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CInlineFilter.php(58): UserController->filterPostOnly()
+#6 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#9 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CInlineFilter.php(58): UserController->filterAccessControl()
+#10 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#11 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(291): CFilterChain->run()
+#12 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(265): UserController->runActionWithFilters()
+#13 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CWebApplication.php(282): UserController->run()
+#14 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#15 D:\PHP\xampp\htdocs\yii-1.1.17\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 D:\PHP\xampp\htdocs\yiitest\index.php(13): CWebApplication->run()
+REQUEST_URI=/yiitest/index.php?ajax=user-grid&id=11&r=user%2Fdelete
+in D:\PHP\xampp\htdocs\yiitest\protected\controllers\UserController.php (153)
+in D:\PHP\xampp\htdocs\yiitest\index.php (13)
+2016/02/10 13:23:12 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`yiitest`.`tbl_post`, CONSTRAINT `tbl_post_ibfk_1` FOREIGN KEY (`author_id`) REFERENCES `tbl_user` (`id`)). The SQL statement executed was: DELETE FROM `tbl_user` WHERE `tbl_user`.`id`=11.
+in D:\PHP\xampp\htdocs\yiitest\protected\controllers\UserController.php (155)
+in D:\PHP\xampp\htdocs\yiitest\index.php (13)
+2016/02/10 13:23:12 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`yiitest`.`tbl_post`, CONSTRAINT `tbl_post_ibfk_1` FOREIGN KEY (`author_id`) REFERENCES `tbl_user` (`id`)). The SQL statement executed was: DELETE FROM `tbl_user` WHERE `tbl_user`.`id`=11' in D:\PHP\xampp\htdocs\yii-1.1.17\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\PHP\xampp\htdocs\yii-1.1.17\framework\db\ar\CActiveRecord.php(1807): CDbCommand->execute()
+#1 D:\PHP\xampp\htdocs\yii-1.1.17\framework\db\ar\CActiveRecord.php(1227): CActiveRecord->deleteByPk('11')
+#2 D:\PHP\xampp\htdocs\yiitest\protected\controllers\UserController.php(155): CActiveRecord->delete()
+#3 [internal function]: UserController->actionDelete('11')
+#4 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(UserController), Array)
+#5 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(UserController), Object(ReflectionMethod), Array)
+#6 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(1116): CFilterChain->run()
+#9 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CInlineFilter.php(58): CController->filterPostOnly(Object(CFilterChain))
+#10 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(291): CFilterChain->run()
+#16 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CWebApplication.php(282): CController->run('delete')
+#18 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CWebApplication.php(141): CWebApplication->runController('user/delete')
+#19 D:\PHP\xampp\htdocs\yii-1.1.17\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#20 D:\PHP\xampp\htdocs\yiitest\index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/yiitest/index.php?ajax=user-grid&id=11&r=user%2Fdelete
+HTTP_REFERER=http://localhost/yiitest/index.php?r=user/admin
+---
+2016/02/10 13:23:27 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`yiitest`.`tbl_post`, CONSTRAINT `tbl_post_ibfk_1` FOREIGN KEY (`author_id`) REFERENCES `tbl_user` (`id`)). The SQL statement executed was: DELETE FROM `tbl_user` WHERE `tbl_user`.`id`=11.
+in D:\PHP\xampp\htdocs\yiitest\protected\controllers\UserController.php (155)
+in D:\PHP\xampp\htdocs\yiitest\index.php (13)
+2016/02/10 13:23:27 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`yiitest`.`tbl_post`, CONSTRAINT `tbl_post_ibfk_1` FOREIGN KEY (`author_id`) REFERENCES `tbl_user` (`id`)). The SQL statement executed was: DELETE FROM `tbl_user` WHERE `tbl_user`.`id`=11' in D:\PHP\xampp\htdocs\yii-1.1.17\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\PHP\xampp\htdocs\yii-1.1.17\framework\db\ar\CActiveRecord.php(1807): CDbCommand->execute()
+#1 D:\PHP\xampp\htdocs\yii-1.1.17\framework\db\ar\CActiveRecord.php(1227): CActiveRecord->deleteByPk('11')
+#2 D:\PHP\xampp\htdocs\yiitest\protected\controllers\UserController.php(155): CActiveRecord->delete()
+#3 [internal function]: UserController->actionDelete('11')
+#4 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(UserController), Array)
+#5 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(UserController), Object(ReflectionMethod), Array)
+#6 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(1116): CFilterChain->run()
+#9 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CInlineFilter.php(58): CController->filterPostOnly(Object(CFilterChain))
+#10 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(291): CFilterChain->run()
+#16 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CWebApplication.php(282): CController->run('delete')
+#18 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CWebApplication.php(141): CWebApplication->runController('user/delete')
+#19 D:\PHP\xampp\htdocs\yii-1.1.17\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#20 D:\PHP\xampp\htdocs\yiitest\index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/yiitest/index.php?ajax=user-grid&id=11&r=user%2Fdelete
+HTTP_REFERER=http://localhost/yiitest/index.php?r=user/admin
+---
+2016/02/10 13:24:24 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`yiitest`.`tbl_post`, CONSTRAINT `tbl_post_ibfk_1` FOREIGN KEY (`author_id`) REFERENCES `tbl_user` (`id`)). The SQL statement executed was: DELETE FROM `tbl_user` WHERE `tbl_user`.`id`=11.
+in D:\PHP\xampp\htdocs\yiitest\protected\controllers\UserController.php (155)
+in D:\PHP\xampp\htdocs\yiitest\index.php (13)
+2016/02/10 13:24:24 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`yiitest`.`tbl_post`, CONSTRAINT `tbl_post_ibfk_1` FOREIGN KEY (`author_id`) REFERENCES `tbl_user` (`id`)). The SQL statement executed was: DELETE FROM `tbl_user` WHERE `tbl_user`.`id`=11' in D:\PHP\xampp\htdocs\yii-1.1.17\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\PHP\xampp\htdocs\yii-1.1.17\framework\db\ar\CActiveRecord.php(1807): CDbCommand->execute()
+#1 D:\PHP\xampp\htdocs\yii-1.1.17\framework\db\ar\CActiveRecord.php(1227): CActiveRecord->deleteByPk('11')
+#2 D:\PHP\xampp\htdocs\yiitest\protected\controllers\UserController.php(155): CActiveRecord->delete()
+#3 [internal function]: UserController->actionDelete('11')
+#4 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(UserController), Array)
+#5 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(UserController), Object(ReflectionMethod), Array)
+#6 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(1116): CFilterChain->run()
+#9 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CInlineFilter.php(58): CController->filterPostOnly(Object(CFilterChain))
+#10 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(291): CFilterChain->run()
+#16 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CWebApplication.php(282): CController->run('delete')
+#18 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CWebApplication.php(141): CWebApplication->runController('user/delete')
+#19 D:\PHP\xampp\htdocs\yii-1.1.17\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#20 D:\PHP\xampp\htdocs\yiitest\index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/yiitest/index.php?r=user/delete&id=11
+HTTP_REFERER=http://localhost/yiitest/index.php?r=user/view&id=11
+---
+2016/02/11 11:33:42 [error] [exception.CException] exception 'CException' with message 'Property "CUploadedFile.name" is read only.' in D:\PHP\xampp\htdocs\yii-1.1.17\framework\base\CComponent.php:170
+Stack trace:
+#0 D:\PHP\xampp\htdocs\yiitest\protected\controllers\PostController.php(82): CComponent->__set('name', '1455186822-1-17')
+#1 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\actions\CInlineAction.php(49): PostController->actionCreate()
+#2 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#3 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#4 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#6 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(291): CFilterChain->run()
+#9 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CWebApplication.php(282): CController->run('create')
+#11 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CWebApplication.php(141): CWebApplication->runController('post/create')
+#12 D:\PHP\xampp\htdocs\yii-1.1.17\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#13 D:\PHP\xampp\htdocs\yiitest\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/yiitest/index.php?r=post/create
+HTTP_REFERER=http://localhost/yiitest/index.php?r=post/create
+---
+2016/02/11 16:50:51 [warning] [application] Failed to set unsafe attribute "author_id" of "Post".
+in D:\PHP\xampp\htdocs\yiitest\protected\controllers\PostController.php (113)
+in D:\PHP\xampp\htdocs\yiitest\index.php (13)
+2016/02/11 17:36:19 [error] [exception.CException] exception 'CException' with message 'Property "CListView.pagination" is not defined.' in D:\PHP\xampp\htdocs\yii-1.1.17\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CWidgetFactory.php(161): CComponent->__set('pagination', true)
+#1 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(PostController), 'zii.widgets.CLi...', Array)
+#2 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CBaseController.php(180): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#3 D:\PHP\xampp\htdocs\yiitest\protected\views\post\index.php(24): CBaseController->widget('zii.widgets.CLi...', Array)
+#4 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CBaseController.php(126): require('D:\\PHP\\xampp\\ht...')
+#5 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\\PHP\\xampp\\ht...', Array, true)
+#6 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(869): CBaseController->renderFile('D:\\PHP\\xampp\\ht...', Array, true)
+#7 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#8 D:\PHP\xampp\htdocs\yiitest\protected\controllers\PostController.php(159): CController->render('index', Array)
+#9 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\actions\CInlineAction.php(49): PostController->actionIndex()
+#10 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(291): CFilterChain->run()
+#17 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CWebApplication.php(282): CController->run('index')
+#19 D:\PHP\xampp\htdocs\yii-1.1.17\framework\web\CWebApplication.php(141): CWebApplication->runController('post/index')
+#20 D:\PHP\xampp\htdocs\yii-1.1.17\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#21 D:\PHP\xampp\htdocs\yiitest\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/yiitest/index.php?r=post/index
+HTTP_REFERER=http://localhost/yiitest/index.php
+---

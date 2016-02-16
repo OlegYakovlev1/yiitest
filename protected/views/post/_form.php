@@ -13,6 +13,7 @@
 	// There is a call to performAjaxValidation() commented in generated controller code.
 	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
+	'htmlOptions' => array('enctype' => 'multipart/form-data'),
 )); ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
@@ -23,6 +24,17 @@
 		<?php echo $form->labelEx($model,'title'); ?>
 		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>128)); ?>
 		<?php echo $form->error($model,'title'); ?>
+	</div>
+
+	<div class="row">
+		<?php
+			$this->widget('CMultiFileUpload', array(
+				'name' => 'images',
+				'accept' => 'jpeg|jpg|gif|png', // useful for verifying files
+				'duplicate' => 'Duplicate file!', // useful, i think
+				'denied' => 'Invalid file type', // useful, i think
+		));
+		?>
 	</div>
 
 	<div class="row">

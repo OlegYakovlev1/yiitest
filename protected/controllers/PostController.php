@@ -71,6 +71,20 @@ class PostController extends Controller
 		{
 			$model->attributes=$_POST['Post'];
 			$model->author_id=Yii::app()->user->id;
+			$images = CUploadedFile::getInstancesByName('images');
+			if (isset($images) && count($images) > 0)
+			{
+				$pic_names = array();
+				foreach ($images as $image => $pic)
+				{
+					$sourcePath = pathinfo($pic->getName());
+					$pic_name = time().'-'.++$image.'-'.$model->author_id.'.'.$sourcePath['extension'];
+					$path = Yii::getPathOfAlias('webroot') . "/images/";
+					if ($pic->saveAs($path.$pic_name))
+						$pic_names[] = $pic_name;
+				}
+				$model->images=implode(",",$pic_names);
+			}
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -94,7 +108,23 @@ class PostController extends Controller
 
 		if(isset($_POST['Post']))
 		{
+			$_POST['Post']['images']=$model->images;
+			$_POST['Post']['author_id']=$model->author_id;
 			$model->attributes=$_POST['Post'];
+			$images = CUploadedFile::getInstancesByName('images');
+			if (isset($images) && count($images) > 0)
+			{
+				$pic_names = array();
+				foreach ($images as $image => $pic)
+				{
+					$sourcePath = pathinfo($pic->getName());
+					$pic_name = time().'-'.++$image.'-'.$model->author_id.'.'.$sourcePath['extension'];
+					$path = Yii::getPathOfAlias('webroot') . "/images/";
+					if ($pic->saveAs($path.$pic_name))
+						$pic_names[] = $pic_name;
+				}
+				$model->images=implode(",",$pic_names);
+			}
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -123,7 +153,10 @@ class PostController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Post');
+		$dataProvider=new CActiveDataProvider('Post',array(
+			'pagination'=>array(
+				'pageSize'=>20,
+			),));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
